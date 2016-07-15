@@ -119,7 +119,7 @@ class Client(object):
             #connection error
             raise e
         if not is_success:
-            raise OpenNebulaException(data)
+            raise OpenNebulaException(data, return_code)
         return data
 
     def version(self):
