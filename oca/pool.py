@@ -13,7 +13,7 @@ class WrongIdError(OpenNebulaException):
     pass
 
 def extractString(xml_or_string):
-    if isinstance(xml_or_string, str):
+    if isinstance(xml_or_string, basestring):
         return xml_or_string
     else:
         return xml_or_string.text or ''
@@ -53,7 +53,7 @@ class XMLElement(object):
 
     def _initialize_xml(self, xml, root_element):
         hidden_character=u"\u200b"
-        self.xml = ET.fromstring(xml.replace(hidden_character,""))
+        self.xml = ET.fromstring(xml.replace(hidden_character,"").encode("utf-8"))
         if self.xml.tag != root_element.upper():
             self.xml = None
         self._convert_types()
