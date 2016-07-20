@@ -76,14 +76,16 @@ class VmTemplate(PoolElement):
         '''
         self.client.call(VmTemplate.METHODS['chown'], self.id, uid, gid)
 
-    def instantiate(self, name=''):
+    def instantiate(self, name='', extra_template=''):
         '''
         Creates a VM instance from a VmTemplate
 
         ``name``
             name of the VM instance
         '''
-        self.client.call(VmTemplate.METHODS['instantiate'], self.id, name)
+        # id = self.client.call(VmTemplate.METHODS['instantiate'], self.id, name)
+        id = self.client.call(VmTemplate.METHODS['instantiate'], self.id, name, False, extra_template)
+        return id
 
     def __repr__(self):
         return '<oca.VmTemplate("%s")>' % self.name

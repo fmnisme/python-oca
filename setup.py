@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-__version__ = '4.15.anjuke7'
+__version__ = '4.15.anjuke11'
 
 import os
 
