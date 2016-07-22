@@ -76,7 +76,7 @@ class VmTemplate(PoolElement):
         '''
         self.client.call(VmTemplate.METHODS['chown'], self.id, uid, gid)
 
-    def instantiate(self, name='', extra_template=''):
+    def instantiate(self, name='', hold=False, extra_template=''):
         '''
         Creates a VM instance from a VmTemplate
 
@@ -84,7 +84,7 @@ class VmTemplate(PoolElement):
             name of the VM instance
         '''
         # id = self.client.call(VmTemplate.METHODS['instantiate'], self.id, name)
-        id = self.client.call(VmTemplate.METHODS['instantiate'], self.id, name, False, extra_template)
+        id = self.client.call(VmTemplate.METHODS['instantiate'], self.id, name, hold, extra_template)
         return id
 
     def __repr__(self):

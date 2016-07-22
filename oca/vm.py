@@ -18,6 +18,7 @@ class VirtualMachine(PoolElement):
         'delete':    'vm.delete',
         'chown':     'vm.chown',
         'update':    'vm.update',
+        'rename':    'vm.rename',
     }
 
     INIT = 0
@@ -247,6 +248,13 @@ class VirtualMachine(PoolElement):
         Delete the VM.
         '''
         self._action('delete')
+
+    def rename(self, name):
+        '''
+        Rename the VM.
+        '''
+        data = self.client.call(self.METHODS['rename'], self.id, name)
+        return data
 
     def _action(self, action):
         self.client.call(self.METHODS['action'], action, self.id)
