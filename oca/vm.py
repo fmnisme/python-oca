@@ -256,6 +256,13 @@ class VirtualMachine(PoolElement):
         data = self.client.call(self.METHODS['rename'], self.id, name)
         return data
 
+    def action(self, action):
+        '''
+        submits an action to be performed on a virtual machine.
+        '''
+        data = self.client.call(self.METHODS['action'], action, self.id)
+        return data
+
     def _action(self, action):
         self.client.call(self.METHODS['action'], action, self.id)
 
