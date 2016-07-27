@@ -93,7 +93,7 @@ class VirtualMachine(PoolElement):
         'stime':         int,
         'etime':         int,
         'deploy_id':     extractString,
-        'template':      ['TEMPLATE', Template, ['NIC', 'DISK']],
+        'template':      ['TEMPLATE', Template, ['NIC', 'DISK', 'GRAPHICS']],
         'user_template': ['USER_TEMPLATE', Template],
         'history_records':  ['HISTORY_RECORDS', lambda x: [History(i)
                                         for i in x] if x is not None else []],
